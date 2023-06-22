@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     twilioFlutter =
-        TwilioFlutter(accountSid: 'AC872590f5d7278a1b718468047175e4ba', authToken: 'a1e5bb33aa48f757dadc6db0f4d64143', twilioNumber: '+15879122372');
+        TwilioFlutter(accountSid: dotenv.env["ACCOUNT_SID"]!, authToken: dotenv.env["AUTH_TOKEN"]!, twilioNumber: dotenv.env["TWILIO_NUMBER"]!);
 
     super.initState();
   }
