@@ -25,9 +25,16 @@ void main() {
           // Trigger a frame.
           await tester.pumpAndSettle();
 
+          // Wait for the sendSms() function to complete
+          await tester.runAsync(() async {
+            // Wait for the delay caused by the Twilio API call
+            await Future.delayed(Duration(seconds: 10)); // Adjust the duration as needed
 
-          // Verify the counter increments by 1.
-          expect(find.text('SMS sent successfully'), findsOneWidget);
+            // Verify that the text is updated correctly
+            expect(find.text('OTP Sent to +6287821790323.'), findsOneWidget);
+          });
+
+
         });
   });
 }
